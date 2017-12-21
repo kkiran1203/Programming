@@ -1,0 +1,50 @@
+#include <iostream>
+#include <limits.h>
+#include <math.h>
+using namespace std;
+
+int wordwrap( int arr[], int N, int line ) {
+    int ww[N][N];
+    for( int i=0; i<N; i++) {
+        int words = 0;
+        for( int j=i; j<N; j++) {
+            words += arr[j] + j - 1;
+            if( words > line ) {
+                ww[i][j] = INT_MAX;
+            } else {
+                ww[i][j] = pow( line - words, 3 );
+            }
+        }
+    }
+    int cost[N];
+    cost[ 0 ] = pow( line - arr[0], 3);
+    for( int j=1; j<N; j++ ) {
+        int min = INT_MAX;
+        for( int i=1; i<j ; i++) {
+            if( min > cost[i-1] + ww[i][j]) {
+                min = cost[i-1] + ww[i][j];
+            }
+        }
+        cost[j] = min;
+    }
+    return cost[N-1];
+}
+
+int main() {
+	//code
+	int T;
+	cin >> T;
+	for( int i=0; i<T; i++ ) {
+	    int N;
+	    cin >> N;
+	    int words[N];
+	    for( int j=0; j<N; j++ ) {
+	        cin >> words[j];
+	    }
+	    int line_len;
+	    cin >> line_len;
+	    int cost = wordwrap( words, N, line_len );
+	    
+	}
+	return 0;
+}

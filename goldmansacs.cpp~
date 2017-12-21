@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+
+
+int main() {
+  string s1 = "GGGGrrrrrrrt";
+  int n = s1.length();
+
+  string s2 = '';
+  int len[n] = { 0 };
+  int j=0;
+  s2[ 0 ] = s1[ 0 ]
+  for( int i=1; i<n; i++ ) {
+    if( s1[ i ] != s2[ j ] ) {
+      j = j+1;
+      s2[ j ] = s1[ i ];
+    }
+  }
+  cout << s2 << "\n";
+
+  return 0;
+}

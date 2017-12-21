@@ -1,0 +1,11 @@
+#include<stdio.h>
+#include<iostream>
+
+using namesoace std;
+
+
+int main() {
+  vector<int> x, vector<int> y;
+  
+  return 0;
+}

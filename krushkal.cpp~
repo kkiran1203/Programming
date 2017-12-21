@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<iostream>
+
+using namespace std;
+
+struct Edge {
+  int src, dest;
+};
+
+struct Graph {
+  int V;
+  int E;
+  struct Edge* edges;
+};
+
+int main() {
+  struct Graph* graph;
+  graph = new Graph;
+  graph->V = 3;
+  graph->E = 3;
+  graph->edges = ( struct Edge* )malloc( E*sizeof( Struct Edge ) );
+  graph->edges[0].src = 0;
+
+  return 0;
+}

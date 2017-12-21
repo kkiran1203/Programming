@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
+
+int lis_mem( int arr[], int size, int mem[] ) {
+  if( size == 1 ) {
+    mem[ size ] =1;
+    return 1;
+  }
+  if( mem[size] !=-1 ) {
+    return mem[size];
+  }
+  for( int i=1; i<size; i++ ) {
+    int x = lis_mem( arr, i, mem );
+    if( mem[i] < 1 + x ) {
+      mem[i] = 1 + x;
+    }
+  }
+  return mem[size];
+}
+
+int lis( int arr[], int size ) {
+  int mem[ 100 ] = { -1 };
+  return lis_mem( arr, size, mem );
+}
+
+int main() {
+  int arr[] = { 1, 2, 3, 9, 8, 7, 5, 6 };
+  int size = sizeof(arr)/sizeof(arr[0]);
+  cout << " lis is: " << lis( arr, size ) << "\n"; 
+  return 0;
+}

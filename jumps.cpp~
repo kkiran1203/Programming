@@ -1,0 +1,37 @@
+#include <iostream>
+#include <limits.h>
+using namespace std;
+
+int getMinSteps( int arr[], int start, int N ) {
+    if( start == N ) {
+        return 0;
+    }
+    int min = INT_MAX;
+    for( int i=1; i<=arr[start]; i++ ) {
+        if( start+i > N ) {
+            continue;
+        }
+        int x = getMinSteps( arr, start+i, N);
+        if( min > 1+x ) {
+            min = 1+x;
+        }
+    }
+    return min;
+}
+
+int main() {
+	//code
+	int T;
+	cin >> T;
+	for( int i=0; i<T; i++ ) {
+	    int N;
+	    cin >>N;
+	    int arr[N];
+	    for( int j=0; j<N; j++ ) {
+	        cin>>arr[i];
+	    }
+	    int minSteps = getMinSteps(arr,0,N);
+	    cout << minSteps << "\n";
+	}
+	return 0;
+}

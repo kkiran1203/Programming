@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<iostream>
+
+using namespace std;
+
+struct edge {
+  int src, dest, weight;
+};
+
+struct graph {
+  int V,E;
+  struct edge* edges;
+};
+
+int main() {
+  struct *graph = new graph;
+  graph->V=3;
+  graph->E=3;
+  graph->edges = (struct edge*)malloc( graph->E * sizeof( struct edge ) );
+  graph->edges[0].src=0;
+  graph->edges[0].dest=1;
+  graph->edges[0].weight=2;
+  graph->edges[1].src=1;
+  graph->edges[1].dest=2;
+  graph->edges[1].weight=8;
+  graph->edges[2].src=0;
+  graph->edges[2].dest=2;
+  graph->edges[2].weight=6
+  return 0;
+}
